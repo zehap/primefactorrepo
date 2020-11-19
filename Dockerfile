@@ -12,5 +12,5 @@ COPY	srcs/default /
 COPY	srcs/phptest.php /
 COPY	srcs/init.sh /
 EXPOSE	80
-
+ENV PORT 8080
 CMD		bash init.sh
