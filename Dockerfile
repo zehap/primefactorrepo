@@ -7,10 +7,12 @@ RUN		apt-get update && apt-get upgrade -y && \
 		nginx \
 		vim \
 		php-fpm 
-
-COPY	srcs/default /
-COPY	srcs/phptest.php /
-COPY	srcs/init.sh /
+RUN		rm /etc/nginx/sites-available/default
+ADD	srcs/default /etc/nginx/sites-available
+ADD	srcs/phptest.php /var/www/html
+RUN		chown -R www-data /var/www/*
+RUN		chmod -R 755 /var/www/*
+RUN		service nginx start
+RUN		service php7.4-fpm start
 EXPOSE	80
-ENV PORT 8080
-CMD		bash init.sh
+ENTRYPOINT	["/var/www/html/phptest.php"]
