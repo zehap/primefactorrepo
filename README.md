@@ -1,13 +1,6 @@
 # primefactorrepo
 
-Usage:
 
-  1. Cloning git and build image "docker build . -t {imagename}"
-  2. Check the image "docker images"
-  3. Run docker by image "docker run -it -p 80:80 {imagename}"
-  Thx.
-  
-  
 
 Issue Report:
   클러스터의 배포 중 컨테이너 및 Pod에서 CrashLoopBackOff 에러 발생
@@ -19,3 +12,5 @@ Issue Report:
       init.sh를 사용하지 않고 php파일 을 ADD하는 방식으로 수정
       해봤지만 로컬에서는 정상동작하나 클러스터에 push하고 CrashLoopBackOff에러 발생 - 파일 형식이 php인 것. php.ini, nginx실행여부 연관있을듯
       php가 아니라 html로 작성해볼예정
+      -----------------------------------------------------------------
+      html결과 로컬에서만 작동 확인 GKE 구성도 에러없이 됨. 근데 이미지 배포 후 접속하려고 하면 접속이 안됨 / 아무 로그도 확인이 안됨
